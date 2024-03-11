@@ -275,6 +275,7 @@
 		EF91949528984C9900612147 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				EF27FCFE28D8EEA90092D530 /* Models */,
 				EF2B937E2B73F02900250CCD /* AppLifeCycle */,
 				EF2B937D2B73EFFD00250CCD /* Application */,
 				EFFB80832A3246740092DDCA /* Networking */,
@@ -317,7 +318,6 @@
 			children = (
 				EF2BA5B228E5B6C800E78440 /* Search */,
 				EF27FCFF28D8EF280092D530 /* Home */,
-				EF27FCFE28D8EEA90092D530 /* Models */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

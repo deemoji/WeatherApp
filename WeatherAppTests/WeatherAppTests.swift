@@ -7,11 +7,11 @@ import RxBlocking
 class WeatherAppTests: XCTestCase {
     
     var mockSession: MockURLSession!
-    var sut: SingleRequest!
+    var sut: Network!
     
     override func setUpWithError() throws {
         mockSession = MockURLSession()
-        sut = SingleRequest()
+        sut = Network()
     }
     override func tearDownWithError() throws {
         mockSession = nil
@@ -24,7 +24,7 @@ class WeatherAppTests: XCTestCase {
         
         let request = URLRequest(url: url)
         let responce = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)
-        let single: Single<Weather.Responce> = sut.get(urlRequest: request, urlSession: mockSession)
+        let single: Single<Weather.Responce> = sut.executeQuery(urlRequest: request, urlSession: mockSession)
         
         // when
         mockSession.data = try? Data(contentsOf: path)
@@ -38,7 +38,7 @@ class WeatherAppTests: XCTestCase {
         let responce = HTTPURLResponse(url: request.url!, statusCode: 404, httpVersion: "HTTP/1.1", headerFields: nil)
         mockSession.responce = responce
         mockSession.error = MockURLSession.MockError.UrlError
-        let single: Single<Weather.Responce> = sut.get(urlRequest: request, urlSession: mockSession)
+        let single: Single<Weather.Responce> = sut.executeQuery(urlRequest: request, urlSession: mockSession)
         let _ = single.subscribe(onFailure: { error in
             XCTAssertNotNil(error, "Error not fetched")
         }).dispose()

@@ -2,7 +2,7 @@ import Foundation
 @testable import WeatherApp
 import XCTest
 
-extension WeatherApiClient {
+extension WeatherNetwork {
     func makeRequest(requestData: Weather.RequestType, with unit: Weather.Unit) throws -> URLRequest {
         var components = URLComponents()
         components.scheme = "https"

@@ -4,10 +4,10 @@ import Network
 
 class WeatherApiClientTests: XCTestCase {
 
-    var sut: WeatherApiClient!
+    var sut: WeatherNetwork!
     
     override func setUpWithError() throws {
-        sut = WeatherApiClient()
+        sut = WeatherNetwork()
     }
     override func tearDownWithError() throws {
         sut = nil
@@ -30,7 +30,7 @@ class WeatherApiClientTests: XCTestCase {
             result = responce
             expectation.fulfill()
         } onFailure: { error in
-            if let error = error as? SingleRequest.RequestError {
+            if let error = error as? Network.RequestError {
                 switch error {
                 case .badStatusCode(let statusCode):
                     XCTFail("Error with status code - \(statusCode)")

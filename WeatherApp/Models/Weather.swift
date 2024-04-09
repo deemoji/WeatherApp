@@ -14,14 +14,6 @@ struct Weather {
         
         case latitudeLongitude(String, String)
         
-        var directory: String {
-            switch self {
-            case .address(let address):
-                return address
-            case .latitudeLongitude(let latitude, let longitude):
-                return "\(latitude),\(longitude)"
-            }
-        }
     }
     
     enum Unit: String {

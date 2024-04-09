@@ -5,7 +5,7 @@ protocol WeatherUseCaseProvider {
     func makeWeatherUseCase() -> WeatherUseCase
 }
 final class CoreLocationUseCaseProvider: WeatherUseCaseProvider {
-    private let network = WeatherApiClient()
+    private let network = WeatherNetwork()
     private let locationManager = CLLocationManager()
     func makeWeatherUseCase() -> WeatherUseCase {
         if (!CLLocationManager.locationServicesEnabled())  {
@@ -18,7 +18,7 @@ final class CoreLocationUseCaseProvider: WeatherUseCaseProvider {
 }
 final class QueryWeatherUseCaseProvider: WeatherUseCaseProvider {
     private let city: String
-    private let network = WeatherApiClient()
+    private let network = WeatherNetwork()
     
     init(_ city: String) {
         self.city = city

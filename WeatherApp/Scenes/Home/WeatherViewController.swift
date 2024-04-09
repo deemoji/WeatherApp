@@ -58,8 +58,7 @@ final class WeatherViewController: UIViewController {
         output.location.drive { [unowned self] in navigationItem.title = $0 }.disposed(by: bag)
 
         output.error.drive(onNext: { [weak self] in
-            print($0.localizedDescription)
-            self?.showErrorMessage("Something went wrong. Try again.")
+            self?.showErrorMessage($0.localizedDescription)
         }).disposed(by: bag)
         output.fetching.drive(refreshControl.rx.isRefreshing).disposed(by: bag)
     }

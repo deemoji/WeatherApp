@@ -21,7 +21,7 @@
 
 ## Технологии
 - Верстка кодом (UIKit)
-- Чистая архитектура (RxSwift и MVVM)
+- RxSwift и MVVM
 - MapKit
 - REST API([Visual Crossing Weather API](https://www.visualcrossing.com/))
 - Codable для Парсинга JSON
